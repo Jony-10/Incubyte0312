@@ -9,9 +9,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class outlookInboxPage extends Setup {
+public class OutlookInboxPage extends Setup {
 
-    public outlookInboxPage(WebDriver driver) {
+    public OutlookInboxPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         Setup.driver = driver;
     }
@@ -28,9 +28,13 @@ public class outlookInboxPage extends Setup {
     @FindBy(xpath = XpathStrings.BODY_INPUT_FIELD)
     WebElement emailBodyInput;
 
+
+
     public void clickOnComposeButton() {
         composeButton.click();
     }
+
+
 
     public void waitForComposePageLoad() {
         Utils.waitForElementDisplayed(recipientEmailAddressInput, 2);
@@ -38,6 +42,11 @@ public class outlookInboxPage extends Setup {
 
     public int sendIconCount() {
         return driver.findElements(By.xpath(XpathStrings.SEND_BUTTON)).size();
+    }
+
+    public void clickOnSendButton(){
+        driver.findElement(By.xpath(XpathStrings.SEND_BUTTON)).click();
+        Utils.waitForElementInvisibility(XpathStrings.SEND_BUTTON);
     }
 
     public void inputRecipientEmail(String email) {

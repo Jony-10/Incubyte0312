@@ -6,10 +6,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pageObject.outlookInboxPage;
+import pageObject.OutlookInboxPage;
 
-public class outlookInbox_Step extends Setup {
-    outlookInboxPage outlookInboxPage = new outlookInboxPage(driver);
+public class OutlookInboxStep extends Setup {
+    OutlookInboxPage outlookInboxPage = new OutlookInboxPage(driver);
 
     @Then("New mail page should be displayed in screen")
     public void newMailModalShouldBeDisplayedInScreen() {
@@ -35,10 +35,10 @@ public class outlookInbox_Step extends Setup {
         Assert.assertEquals(driver.getTitle().indexOf("Mail"), 0);
     }
 
-    @Then("I verify {string}, {string}, {string} fields value based on my last input")
-    public void iVerifyFieldsValueBasedOnMyLastInput(String recipientEmail, String subject, String body) {
-        Assert.assertEquals(outlookInboxPage.recipientEmailText(), recipientEmail);
-        Assert.assertEquals(outlookInboxPage.emailSubjectText(), subject);
-//        Assert.assertEquals(outlookInboxPage.emailBodyText(), body);
+    @And("I click on the Send button")
+    public void iClickOnTheSendButton() {
+        outlookInboxPage.clickOnSendButton();
+
     }
+
 }

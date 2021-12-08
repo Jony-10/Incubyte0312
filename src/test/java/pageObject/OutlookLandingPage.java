@@ -8,9 +8,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class outlookLandingPage extends Setup {
+public class OutlookLandingPage extends Setup {
 
-    public outlookLandingPage(WebDriver driver){
+    public OutlookLandingPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         Setup.driver = driver;
     }

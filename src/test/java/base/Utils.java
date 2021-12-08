@@ -26,6 +26,11 @@ public class Utils extends Setup {
         wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath(xpath))));
     }
 
+    public static void waitForElementInvisibility(String xpath) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated((By.xpath(xpath))));
+    }
+
     public static String getProperty(String Key) throws Exception {
         File file = new File("application.properties");
         FileInputStream fis = new FileInputStream(file);

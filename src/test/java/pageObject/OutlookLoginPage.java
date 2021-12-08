@@ -13,9 +13,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class outlookLoginPage extends Setup {
+public class OutlookLoginPage extends Setup {
 
-    public outlookLoginPage(WebDriver driver) {
+    public OutlookLoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         Setup.driver = driver;
     }
@@ -31,12 +31,14 @@ public class outlookLoginPage extends Setup {
         action.moveToElement(nextButton).click().build().perform();
     }
 
-    public void setInputFieldValue(String input) {
-        if(input.contains(".com")){
-            Utils.waitForElementVisibility(XpathStrings.OUTLOOK_SIGNUP_LINK);
-        }else Utils.waitForElementVisibility(XpathStrings.OUTLOOK_FORGET_PASSWORD);
+    public void enterEmail(String email) {
+        Utils.waitForElementVisibility(XpathStrings.OUTLOOK_SIGNUP_LINK);
+        Utils.clearAndSendKeys(inputBoxGeneral, email);
+    }
 
-        Utils.clearAndSendKeys(inputBoxGeneral, input);
+    public void enterPassword(String password) {
+        Utils.waitForElementVisibility(XpathStrings.OUTLOOK_FORGET_PASSWORD);
+        Utils.clearAndSendKeys(inputBoxGeneral, password);
     }
 
 }

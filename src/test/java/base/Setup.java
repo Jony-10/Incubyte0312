@@ -14,8 +14,8 @@ public class Setup {
 
     public static WebDriver driver;
 
-    public static WebDriver setupBrowser(String driverType){
-        if(driverType.equalsIgnoreCase("chrome")){
+    public static WebDriver setupBrowser(String driverType) {
+        if (driverType.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             Map<String, Object> prefs = new HashMap<String, Object>();
@@ -33,4 +33,4 @@ public class Setup {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return driver;
     }
-        }
+}
